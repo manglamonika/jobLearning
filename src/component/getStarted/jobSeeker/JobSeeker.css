@@ -1,0 +1,91 @@
+/* 🌟 JobSeeker Profile Page Styling */
+.main-bck {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #000000, #1a1a1a); /* Dark Background */
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+/* Profile Dashboard */
+.dashboard {
+  background: rgba(30, 30, 30, 0.9);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
+  width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+/* Profile Picture Section */
+.profile-pic {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.profile-pic button {
+  background: linear-gradient(145deg, #4d6167, #008cff);
+  border: none;
+  padding: 8px 12px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(0, 255, 255, 0.3);
+  transition: all 0.3s ease-in-out;
+}
+
+.profile-pic button:hover {
+  background: linear-gradient(145deg, #008cff, #00f5ff);
+  box-shadow: 5px 5px 15px rgba(0, 0, 255, 0.5),
+              -5px -5px 15px rgba(0, 255, 255, 0.5);
+}
+
+/* User Information */
+.name h1 {
+  font-size: 1.3rem;
+  margin: 8px 0;
+  color: #00f5ff;
+  text-shadow: 0 0 5px #00f5ff, 0 0 10px #00bfff;
+}
+
+/* Loading & Error Messages */
+p {
+  font-size: 1rem;
+  margin-top: 10px;
+}
+
+/* Logout Button */
+.logout-btn {
+  background: linear-gradient(145deg, #444c5b, #ff1a1a);
+  border: none;
+  padding: 12px 20px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ffffff;
+  text-transform: uppercase;
+  cursor: pointer;
+  border-radius: 8px;
+  box-shadow: 3px 3px 8px rgba(255, 0, 0, 0.3);
+  transition: all 0.3s ease-in-out;
+  margin-top: 1rem;
+}
+
+.logout-btn:hover {
+  background: linear-gradient(145deg, #6e4141, #4e3232);
+  box-shadow: 5px 5px 15px rgba(255, 0, 0, 0.5),
+              -5px -5px 15px rgba(255, 0, 0, 0.5);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+  .dashboard {
+      width: 90%;
+  }
+}

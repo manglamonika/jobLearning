@@ -1,0 +1,113 @@
+/* 🌟 Profile Page - Sleek & Modern Design */
+.profile-form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 25px;
+    background: rgba(20, 20, 20, 0.85); /* Glassmorphism effect */
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 20px rgba(0, 255, 255, 0.4);
+    color: #ffffff;
+    font-family: "Poppins", sans-serif;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+/* Smooth Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Heading with Glow Effect */
+.profile-form h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #00f5ff;
+    text-shadow: 0 0 8px #00f5ff, 0 0 15px #00bfff;
+}
+
+/* Labels - Modern Look */
+.profile-form label {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    display: block;
+    color: #00e6e6;
+}
+
+/* Input & Select Fields with Neon Effect */
+.profile-form input,
+.profile-form select {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.1);
+    color: #ffffff;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+    box-shadow: inset 2px 2px 5px rgba(0, 255, 255, 0.3);
+}
+
+/* Focus Effect */
+.profile-form input:focus,
+.profile-form select:focus {
+    box-shadow: 0px 0px 10px rgba(0, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* File Upload */
+.profile-form input[type="file"] {
+    padding: 8px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid #00bfff;
+    cursor: pointer;
+}
+
+/* Buttons - Modern Glassy Effect */
+.form-actions {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.form-actions button {
+    background: linear-gradient(145deg, #00bfff, #008cff);
+    border: none;
+    padding: 12px 20px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #ffffff;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 4px 4px 12px rgba(0, 255, 255, 0.4);
+}
+
+/* Back Button */
+.form-actions button:first-child {
+    background: linear-gradient(145deg, #ff4d4d, #ff1a1a);
+}
+
+/* Hover Effects */
+.form-actions button:hover {
+    transform: translateY(-3px);
+    box-shadow: 6px 6px 15px rgba(0, 255, 255, 0.6);
+}
+
+/* Responsive Design */
+@media screen and (max-width: 480px) {
+    .profile-form {
+        width: 90%;
+        padding: 20px;
+    }
+}

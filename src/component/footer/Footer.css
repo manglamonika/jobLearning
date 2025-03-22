@@ -1,0 +1,53 @@
+/* Footer Container */
+.main {
+    width: 100%;
+    background: linear-gradient(135deg, #1a1a2e, #16213e); /* Deep dark gradient */
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    box-shadow: 0 -5px 15px rgba(0, 0, 0, 0.3);
+    border-top: 3px solid #00f5ff; /* Neon border effect */
+  }
+  
+  /* Footer Text */
+  .main h1 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: 1px;
+    text-shadow: 0 0 10px rgba(0, 245, 255, 0.8); /* Neon glow effect */
+    animation: glow 2s infinite alternate;
+  }
+  
+  /* Footer Hover Effect */
+  .main:hover {
+    background: linear-gradient(135deg, #0f3460, #16213e);
+    transition: all 0.5s ease-in-out;
+  }
+  
+  /* Neon Glow Animation */
+  @keyframes glow {
+    from {
+      text-shadow: 0 0 5px rgba(0, 245, 255, 0.6);
+    }
+    to {
+      text-shadow: 0 0 15px rgb(5, 189, 45);
+    }
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 768px) {
+    .main {
+      font-size: 1rem;
+      padding: 15px;
+    }
+    .main h1 {
+      font-size: 1.5rem;
+    }
+  }
+  

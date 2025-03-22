@@ -1,0 +1,82 @@
+Container Styling
+.job-poster-container {
+    font-family: 'Arial', sans-serif;
+    background-color: #f7f9fc; /* Light background */
+    padding: 2rem;
+    max-width: 800px;
+    margin: 2rem auto; /* Center the container */
+    border-radius: 10px; /* Rounded corners */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  }
+  
+  /* Form Heading */
+  .job-poster-container h1 {
+    text-align: center;
+    color: #34495e;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Form Styling */
+  .job-poster-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+  
+  /* Form Group Styling */
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .form-group label {
+    font-weight: bold;
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+  }
+  
+  .form-group input,
+  .form-group textarea {
+    padding: 0.8rem;
+    border: 1px solid #dcdcdc;
+    border-radius: 5px;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.2s;
+  }
+  
+  .form-group input:focus,
+  .form-group textarea:focus {
+    border-color: #3498db; /* Highlight border on focus */
+  }
+  
+  /* Submit Button */
+  .post-job-button {
+    padding: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+    background-color: #3498db; /* Primary color */
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+  
+  .post-job-button:hover {
+    background-color: #2980b9; /* Darker shade on hover */
+    transform: scale(1.03); /* Slight enlargement on hover */
+  }
+  
+  /* Responsive Design */
+  @media screen and (max-width: 600px) {
+    .job-poster-container {
+      padding: 1rem;
+    }
+  
+    .post-job-button {
+      font-size: 1rem;
+      padding: 0.8rem;
+    }
+  }
+  
