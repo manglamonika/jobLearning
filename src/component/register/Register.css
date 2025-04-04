@@ -5,15 +5,42 @@
     align-items: center;
     height: 100vh;
     background: linear-gradient(135deg, #000000, #1a1a1a); /* Dark contrast background */
+    padding: 1rem; /* Ensure padding on small screens */
+    overflow: hidden; /* Prevents unwanted overflow */
 }
 
 .registerBox {
-    width: 400px;
+    width: 90%;
+    max-width: 400px; /* Ensures the form doesn't become too wide */
     padding: 2rem;
     background: rgba(30, 30, 30, 0.9);
     border-radius: 12px;
     box-shadow: 0 4px 10px rgba(0, 255, 255, 0.3);
     text-align: center;
+    max-height: 80vh; /* Limits the max height */
+    overflow-y: auto; /* Enables scrolling if needed */
+    position: relative;
+}
+
+/* Scrollbar Styling */
+.registerBox::-webkit-scrollbar {
+    width: 5px;
+}
+
+.registerBox::-webkit-scrollbar-thumb {
+    background: #00f5ff;
+    border-radius: 10px;
+}
+.fields input, .fields select {
+    width: 100%;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 6px;
+    background: #222;
+    color: white;
+    font-size: 1rem;
+    outline: none;
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.2);
 }
 
 /* Signup Heading */
@@ -98,6 +125,7 @@ button:active {
 /* Responsive Design */
 @media screen and (max-width: 480px) {
     .registerBox {
-        width: 90%;
+        width: 95%;
+        max-height: 90vh; /* Increases max-height for better fit */
     }
 }

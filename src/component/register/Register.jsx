@@ -15,6 +15,9 @@ function Register() {
   const [err, setErr] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+    const[role,setRole]=useState("")
+  
+
 
   const handelForm = async (e) => {
     e.preventDefault();
@@ -33,6 +36,7 @@ function Register() {
         email,
         password,
         number,
+        role,
       };
 
       try {
@@ -53,11 +57,12 @@ function Register() {
           setPassword("");
           setConfirmPassword("");
           setNumber("");
+          setRole("")
 
           // //redirect
-          // setTimeout(()=>{
-          //   navigate("/login");
-          // })
+          setTimeout(()=>{
+            navigate("/login");
+          },1500)
         } else {
           setErr(response.data.message || "Signup Failed");
         }
@@ -72,6 +77,7 @@ function Register() {
   return (
     <div className="mainsingup">
       <form onSubmit={handelForm}>
+
         <div className="registerBox">
           <div className="signup">
             <h2>Signup</h2>
@@ -123,13 +129,21 @@ function Register() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            
+          </div>
+          <div>
+          <label>Select Role:</label>
+          <select value={role} onChange={(e)=>setRole(e.target.value)}>
+          <option value="seeker">job seeker</option>
+          <option value="poster">job Poster</option>
+          </select>
           </div>
         </div>
         {err && <p style={{ color: "red" }}>{err}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
         {loading && <p className="text-green-500">Loading...</p>}
         <button
-        onClick={()=>{navigate("/login")}}
+        // onClick={()=>{navigate("/login")}}
           type="submit"
           disabled={loading} // Disable the button while loading
         >

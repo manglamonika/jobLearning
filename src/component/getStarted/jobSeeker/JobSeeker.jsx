@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import "./JobSeeker.css"; // Ensure the CSS file for styling
+import "./JobSeeker.css"; // Ensure CSS is updated
 
 function JobSeeker() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const navigate = useNavigate(); // Hook for navigation
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchLoggedInUser = async () => {
@@ -23,7 +23,6 @@ function JobSeeker() {
         console.log("API Response:", response.data);
 
         const { data, success } = response.data;
-
         if (success && data) {
           setUser(data);
         } else {
@@ -34,44 +33,51 @@ function JobSeeker() {
         setError("Failed to fetch data");
       } finally {
         setLoading(false);
-        
       }
     };
     fetchLoggedInUser();
   }, []);
 
-  //logout
-  const handleLogout=()=>{
+  const handleLogout = () => {
     localStorage.removeItem("token");
-    navigate('/login')
-  }
+    navigate("/login");
+  };
 
   return (
-    <div className="main-bck">
-      <div className="dashboard">
-        <div className="profile-pic">
-          <button onClick={() => navigate("/profile")}>Edit</button> {/* Navigate to Profile Page */}
+    <div className="profile-container">
+      <div className="profile-card">
+        <div className="profile-header">
+          <div className="profile-pic">
+            <img src="/default-profile.png" alt="Profile" />
+          </div>
+          <div className="bio">
+            <h2>{user?.bio || "Your Bio Here"}</h2>
+          </div>
         </div>
-        
-        <div className="name">
-        {user ? <h1>Bio:{user.bio}</h1> : <h1>Bio</h1>}
-          {user ? <h1>Welcome, {user.firstName}!</h1> : <h1>Welcome!</h1>}
-          {user ? <h1>email:{user.email}</h1> : <h1>Email</h1>}
-          {user ? <h1>Number{user.number}</h1> : <h1>Number</h1>}
-          {user ? <h1>Education:{user.education}</h1> : <h1>Education</h1>}
-          {user ? <h1>Gender:{user.gender}</h1> : <h1>Number</h1>}
-          {user ? <h1>Location:{user.location}</h1> : <h1>Number</h1>}
-          {user ? <h1>Availability{user.availability}</h1> : <h1>Number</h1>}
 
+        <div className="profile-details">
+          <h3>Personal Information</h3>
+          <p><strong>Name:</strong> {user?.firstName || "N/A"}</p>
+          <p><strong>Gender:</strong> {user?.gender || "N/A"}</p>
+          <p><strong>Location:</strong> {user?.location || "N/A"}</p>
+
+          <h3>Contact Information</h3>
+          <p><strong>Email:</strong> {user?.email || "N/A"}</p>
+          <p><strong>Phone:</strong> {user?.number || "N/A"}</p>
+
+          <h3>Education & Availability</h3>
+          <p><strong>Education:</strong> {user?.education || "N/A"}</p>
+          <p><strong>Availability:</strong> {user?.availability || "N/A"}</p>
         </div>
-        
-        <div>
-          {loading && <p>Loading...</p>}
-          {error && <p style={{ color: "red" }}>{error}</p>}
+
+        <div className="profile-buttons">
+          <button className="edit-btn" onClick={() => navigate("/profile")}>Edit Profile</button>
+          <button className="logout-btn" onClick={handleLogout}>Logout</button>
         </div>
-{        //logout button
-}        <button  className="logout-btn" onClick={handleLogout}>Logout</button>
       </div>
+
+      {loading && <p>Loading...</p>}
+      {error && <p className="error-msg">{error}</p>}
     </div>
   );
 }

@@ -38,11 +38,11 @@ function Navbar() {
           <h2>CONTACT US</h2>
         </NavLink>
         <NavLink
-          to="/contactus"
+          to="/Jobs"
           className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}
         >
           {" "}
-          <h2>PORTFOLIO</h2>
+          <h2>JOBS</h2>
         </NavLink>
       </div>
 
