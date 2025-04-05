@@ -12,9 +12,11 @@ import JobPoster from './component/jobPoster/JobPoster.jsx'
 import Login from './component/register/Login.jsx'
 import Register from './component/register/Register.jsx'
 import Profile from './component/getStarted/edit/Profile.jsx'
-
+import JobPosterProfile from './component/jobPoster/dashboard/JobPosterProfile.jsx'
+import Jobs from './component/jobPoster/Jobs.jsx'
 // import { store } from '../../redux/my-react-app/src/store.jsx'
 import {Provider} from 'react-redux'
+import PosterMainPage from './component/jobPoster/dashboard/PosterMainPage.jsx'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,6 +30,9 @@ const router = createBrowserRouter(
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/Profile" element={<Profile />} />
+      <Route path="/PosterMainPage" element={<PosterMainPage />} />
+      <Route path="/JobPosterProfile" element={<JobPosterProfile />} />
+      <Route path="/Jobs" element={<Jobs />} />
        
 </Route>
 

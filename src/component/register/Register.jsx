@@ -15,16 +15,23 @@ function Register() {
   const [err, setErr] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
+    const[role,setRole]=useState("seeker")
+  
+
 
   const handelForm = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (!firstName || !lastName || !password || !email || !number || !confirmPassword) {
-      setErr("All fields are required");
+    if (!firstName || !lastName || !password || !email || !number || !confirmPassword || !role) {
+      setErr("All field  are required");
       setLoading(false); // Stop loading
     } else if (password.length < 4) {
       setErr("Password Must be at least 4 char");
       setLoading(false); // Stop loading
+    }else if(password !== confirmPassword){
+      setErr("Password and Confirm Password do not match")
+      setLoading(false); // Stop loading
+       return
     } else {
       setErr("");
       const userdata = {
@@ -33,6 +40,7 @@ function Register() {
         email,
         password,
         number,
+        role,
       };
 
       try {
@@ -53,16 +61,17 @@ function Register() {
           setPassword("");
           setConfirmPassword("");
           setNumber("");
+          setRole("")
 
           // //redirect
-          // setTimeout(()=>{
-          //   navigate("/login");
-          // })
+          setTimeout(()=>{
+            navigate("/login");
+          },1500)
         } else {
           setErr(response.data.message || "Signup Failed");
         }
       } catch (error) {
-        setErr("Error submitting the form. Please try again.",error);
+        setErr(error.response?.data?.message || "Error submitting the form. Please try again.");
       } finally {
         setLoading(false); // Stop loading once the request finishes
       }
@@ -72,6 +81,7 @@ function Register() {
   return (
     <div className="mainsingup">
       <form onSubmit={handelForm}>
+
         <div className="registerBox">
           <div className="signup">
             <h2>Signup</h2>
@@ -123,13 +133,21 @@ function Register() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
             />
+            
+          </div>
+          <div>
+          <label>Select Role:</label>
+          <select value={role} onChange={(e)=>setRole(e.target.value)}>
+          <option value="seeker">job seeker</option>
+          <option value="poster">job Poster</option>
+          </select>
           </div>
         </div>
         {err && <p style={{ color: "red" }}>{err}</p>}
         {success && <p style={{ color: "green" }}>{success}</p>}
         {loading && <p className="text-green-500">Loading...</p>}
         <button
-        onClick={()=>{navigate("/login")}}
+        // onClick={()=>{navigate("/login")}}
           type="submit"
           disabled={loading} // Disable the button while loading
         >
