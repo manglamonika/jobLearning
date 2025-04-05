@@ -15,19 +15,23 @@ function Register() {
   const [err, setErr] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();
-    const[role,setRole]=useState("")
+    const[role,setRole]=useState("seeker")
   
 
 
   const handelForm = async (e) => {
     e.preventDefault();
     setLoading(true);
-    if (!firstName || !lastName || !password || !email || !number || !confirmPassword) {
-      setErr("All fields are required");
+    if (!firstName || !lastName || !password || !email || !number || !confirmPassword || !role) {
+      setErr("All field  are required");
       setLoading(false); // Stop loading
     } else if (password.length < 4) {
       setErr("Password Must be at least 4 char");
       setLoading(false); // Stop loading
+    }else if(password !== confirmPassword){
+      setErr("Password and Confirm Password do not match")
+      setLoading(false); // Stop loading
+       return
     } else {
       setErr("");
       const userdata = {
@@ -67,7 +71,7 @@ function Register() {
           setErr(response.data.message || "Signup Failed");
         }
       } catch (error) {
-        setErr("Error submitting the form. Please try again.",error);
+        setErr(error.response?.data?.message || "Error submitting the form. Please try again.");
       } finally {
         setLoading(false); // Stop loading once the request finishes
       }

@@ -92,7 +92,7 @@ const PosterMainPage = () => {
         <input type="text" name="socialMedia" value={form.socialMedia} onChange={handleChange} placeholder="Enter your company's social media link" />
 
         <button type="submit" disabled={loading}>
-          {loading ? "Updating..." : "Update Profile"}
+          {loading ? "Updating..." : "Post Job"}
         </button>
       </form>
 

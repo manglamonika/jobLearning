@@ -61,10 +61,14 @@ useEffect(() => {
   fetchLoggedInUser();
 }, []);
 
+
 const handleLogout = () => {
   localStorage.removeItem("token");
   navigate("/login");
 };
+const handleEdit=()=>{
+  window.location.href='/PosterMainPage'
+}
 
   return (
     <div>
@@ -100,7 +104,7 @@ const handleLogout = () => {
         </div>
 
         <div className="profile-buttons">
-          <button className="edit-btn">Edit Profile</button>
+          <button onClick={handleEdit} className="edit-btn">Edit Profile</button>
           <button onClick={handleLogout}className="logout-btn">Logout</button>
         </div>
       </div>
